@@ -5,15 +5,24 @@ XOOX
 XOXO
 XXOO
 
-Starting in the top left corner of a 2x2 grid, and only being able to move to the right and down, and going to the bottom right corner, can be generalized instead as having 2 Os and 2 Xs, and being able to play them in any order.
+Starting in the top left corner of a 2x2 grid, and only being able to
+move to the right and down, and going to the bottom right corner, can be
+generalized instead as having 2 Os and 2 Xs, and being able to play them
+in any order.
 
-To put it another way: There are equally as many combinations of 2 Os and 2 Xs as there are routes through a 2x2 grid from the top left to the top right given only moving down and right.
+To put it another way: There are equally as many combinations of 2 Os and
+2 Xs as there are routes through a 2x2 grid from the top left to the top
+right given only moving down and right.
 
-Thus, there should be equally as many 20x20 grid routes, given above restrictions, as there are combinations of 20 Xs and 20 Os.
+Thus, there should be equally as many 20x20 grid routes, given above
+restrictions, as there are combinations of 20 Xs and 20 Os.
 
 This should make the problem significantly easier!
 
-Instead of dealing with an entire 2D array of some nebulous type, as you suggested, I can instead work with a 1D boolean array that is LENGTH + WIDTH long, and figure out some way to find every combination where there are half as many TRUEs as FALSEs.
+Instead of dealing with an entire 2D array of some nebulous type, as you
+suggested, I can instead work with a 1D boolean array that is LENGTH +
+WIDTH long, and figure out some way to find every combination where there
+are half as many TRUEs as FALSEs.
 
 
 OOO---
