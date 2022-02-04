@@ -1,9 +1,9 @@
-OOXX
-OXOX
-OXXO
-XOOX
-XOXO
-XXOO
+OO--
+O-O-
+O--O
+-OO-
+-O-O
+--OO
 
 Starting in the top left corner of a 2x2 grid, and only being able to
 move to the right and down, and going to the bottom right corner, can be
