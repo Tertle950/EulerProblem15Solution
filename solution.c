@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
-void printAcabus(bool *ARR, int ARRSIZE);
+void printAbacus(bool *ARR, int ARRSIZE);
+int latestAbacus(bool *ARR, int ARRSIZE);
+bool moveAbacus(bool *ARR, int ARRSIZE);
 
 int main(){
     int SQUARESIZE = 0;
@@ -12,28 +14,35 @@ int main(){
     for(int i = 0; i < ARRSIZE; i++){
         ARR[i] = i<SQUARESIZE ? true : false;
     }
-    printAcabus(ARR, ARRSIZE);
-
+    
+    printAbacus(ARR, ARRSIZE);
+    while(!moveAbacus(ARR, ARRSIZE)){
+        printAbacus(ARR, ARRSIZE);
+    }
+    printAbacus(ARR, ARRSIZE);
+    
     return 0;
 }
 
-void printAcabus(bool *ARR, int ARRSIZE){
+void printAbacus(bool *ARR, int ARRSIZE){
     for(int i = 0; i < ARRSIZE; i++){
         printf(ARR[i] ? "O" : "-");
     }
+    printf("\n");
 }
 
 int latestAbacus(bool *ARR, int ARRSIZE){
     for(int i = ARRSIZE - 1; i >= 0; i--){
-        if(ARR[i]){return i}
+        if(ARR[i]){return i;}
     }
 }
 
 bool moveAbacus(bool *ARR, int ARRSIZE){
-    int i = latestAbacus(*ARR, ARRSIZE);
-    
+    int i = latestAbacus(ARR, ARRSIZE);
+
     if(i == ARRSIZE - 1){
-        ;
+        return true; // ONLY for DEBUGGING PURPOSES!
+        // REPLACE THIS LATER.
     }else{
         ARR[i] = false;
         ARR[i + 1] = true;
