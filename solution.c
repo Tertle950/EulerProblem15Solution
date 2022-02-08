@@ -19,7 +19,7 @@ int main(){
     while(!moveAbacus(ARR, ARRSIZE)){
         printAbacus(ARR, ARRSIZE);
     }
-    printAbacus(ARR, ARRSIZE);
+    //printAbacus(ARR, ARRSIZE);
     
     return 0;
 }
@@ -35,14 +35,39 @@ int latestAbacus(bool *ARR, int ARRSIZE){
     for(int i = ARRSIZE - 1; i >= 0; i--){
         if(ARR[i]){return i;}
     }
+    return -1;
 }
 
 bool moveAbacus(bool *ARR, int ARRSIZE){
     int i = latestAbacus(ARR, ARRSIZE);
+    int j = 0;
 
     if(i == ARRSIZE - 1){
-        return true; // ONLY for DEBUGGING PURPOSES!
-        // REPLACE THIS LATER.
+        while(ARR[i]){
+            j++;
+            ARR[i] = false;
+            i--;
+        }
+
+        i = latestAbacus(ARR, ARRSIZE);
+        if(i == -1){
+            return true;
+        }
+
+        i -= j-1;
+        if(i < 0){
+            printf("Left Outside of array error!\n");
+        }
+        ARR[i] = false;
+        
+        for(; j >= 0; j--){
+            i++;
+            if(i >= ARRSIZE){
+                printf("Right Outside of array error!\n");
+            }
+            ARR[i] = true;
+        }
+
     }else{
         ARR[i] = false;
         ARR[i + 1] = true;
