@@ -15,12 +15,15 @@ int main(){
         ARR[i] = i<SQUARESIZE ? true : false;
     }
     
+    int count = 1;
     printAbacus(ARR, ARRSIZE);
     while(!moveAbacus(ARR, ARRSIZE)){
         printAbacus(ARR, ARRSIZE);
+        count++;
     }
     //printAbacus(ARR, ARRSIZE);
     
+    printf("%i possibilities found\n",count);
     return 0;
 }
 
@@ -53,10 +56,9 @@ bool moveAbacus(bool *ARR, int ARRSIZE){
         if(i == -1){
             return true;
         }
-
-        i -= j-1;
         if(i < 0){
             printf("Left Outside of array error!\n");
+            i = 0;
         }
         ARR[i] = false;
         
@@ -64,6 +66,7 @@ bool moveAbacus(bool *ARR, int ARRSIZE){
             i++;
             if(i >= ARRSIZE){
                 printf("Right Outside of array error!\n");
+                i = ARRSIZE - 1;
             }
             ARR[i] = true;
         }
